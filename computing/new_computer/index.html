@@ -184,10 +184,10 @@
 <h3 id="installing-python-development-environment">Installing Python development environment</h3>
 <p>The best way to manage Python installations these days is a “conda env”. This will allow you to manage different Python “environments”, where each environment is a set of libraries that you have installed. For example, you can have one environment that uses Python 2.7 and has certain library versions installed, and another environment that uses Python 3.5 and has other libraries installed. Another advantage of conda environments is that you can apply the same procedure on NERSC and other computing centers that support conda.</p>
 <p>To do this, follow the online instructions on installing a conda environment and see modifications below:
-<em> http://conda.pydata.org/docs/using/index.html
-</em> (probably) prefer to install the “miniconda” version rather than anaconda
-<em> (probably) prefer to install “miniconda 3” rather than “miniconda 2”. Both will work fine and allow you to do everything the other one does so don’t stress too much about this decision.
-</em> When creating environments, use a command like this (note that this also installs recommended libraries):</p>
+* http://conda.pydata.org/docs/using/index.html
+* (probably) prefer to install the “miniconda” version rather than anaconda
+* (probably) prefer to install “miniconda 3” rather than “miniconda 2”. Both will work fine and allow you to do everything the other one does so don’t stress too much about this decision.
+* When creating environments, use a command like this (note that this also installs recommended libraries):</p>
 <p> <pre><code class>conda create --name py3 python=3 numpy matplotlib seaborn plotly pandas flask pymongo scipy sympy scikit-learn jupyter
 </code></pre></p>
 <ul>
@@ -222,6 +222,7 @@ cd matminer; python setup.py develop; cd ..
 <p>If you want, you can automatically source activate your environment in your .bash_profile file. This will automatically load your environment when you open a Terminal. Otherwise, you will start off in your default Mac Python.</p>
 <h3 id="other-things-to-do">Other things to do</h3>
 <ul>
+<li>Bring the now-empty box to 143C, write your name on it, and add it to the tower. </li>
 <li>Set up your Time Machine backup (make sure you have purchased or received an external hard disk).
 https://support.apple.com/en-us/HT204412</li>
 <li>You can also set up an online backup plan (e.g., Crashplan or Backblaze) to provide you with a second backup.</li>
