@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Calculation Software - Persson Group Handbook</title>
+        <title>Group Resources - Persson Group Handbook</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -77,7 +77,7 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../../policies/general/">General</a>
+    <a href="../../policies/leave_time/">Leave Time</a>
 </li>
                                     
 <li >
@@ -85,61 +85,65 @@
 </li>
                                     
 <li >
-    <a href="../../policies/travel/">Travel</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Computing <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../computing/">General Info</a>
-</li>
-                                    
-<li >
-    <a href="../new_computer/">Computer Setup</a>
-</li>
-                                    
-<li >
-    <a href="../software/">Software</a>
-</li>
-                                    
-<li >
-    <a href="../hpc/">HPC</a>
-</li>
-                                    
-<li >
-    <a href="../atomate/">Atomate Setup</a>
-</li>
-                                    
-<li class="active">
-    <a href="./">Calculation Software</a>
+    <a href="../../policies/conference_travel/">Conference Travel</a>
 </li>
                                 </ul>
                             </li>
                             <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Computing <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../computing/new_computer/">Computer Setup</a>
+</li>
+                                    
+<li >
+    <a href="../../computing/software/">Software</a>
+</li>
+                                    
+<li >
+    <a href="../../computing/hpc/">High Performance Computing</a>
+</li>
+                                    
+<li >
+    <a href="../../computing/atomate/">Atomate Setup</a>
+</li>
+                                    
+<li >
+    <a href="../../computing/ab_initio/">Ab Initio</a>
+</li>
+                                    
+<li >
+    <a href="../../computing/md/">Molecular Dynamics</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../../about/about/">About</a>
+    <a href="../about/">About</a>
 </li>
                                     
 <li >
-    <a href="../../about/meetings/">Meetings</a>
+    <a href="../meetings/">Meetings</a>
 </li>
                                     
 <li >
-    <a href="../../about/roster/">Group Roster</a>
+    <a href="../roster/">Group Roster</a>
 </li>
                                     
 <li >
-    <a href="../../about/group_jobs/">Group Jobs</a>
+    <a href="../group_jobs/">Group Jobs</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">Group Resources</a>
 </li>
                                     
 <li >
-    <a href="../../about/acknowlegements/">Acknowlegements</a>
+    <a href="../acknowlegements/">Acknowlegements</a>
 </li>
                                 </ul>
                             </li>
@@ -152,12 +156,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../atomate/">
+                                <a rel="next" href="../group_jobs/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../../about/about/">
+                                <a rel="prev" href="../acknowlegements/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -169,49 +173,14 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#vasp">VASP</a></li>
-            <li><a href="#vasp-on-nersc">VASP on NERSC</a></li>
-            <li><a href="#vasp-on-berkeley-research-computing-savio">VASP on Berkeley Research Computing (savio)</a></li>
-            <li><a href="#lawrencium">Lawrencium</a></li>
-        <li class="main "><a href="#q-chem">Q-Chem</a></li>
-        <li class="main "><a href="#lammps">LAMMPS</a></li>
-        <li class="main "><a href="#gromacs">GROMACS</a></li>
+        <li class="main active"><a href="#printing-and-scanning">Printing and Scanning </a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="vasp">VASP</h1>
-<p>We generally run 2 versions of VASP - 5.4.4 and 6 (in beta). VASP 6 is used primarily on nodes operating on the Knights Landing (KNL) CPU architecture, while VASP 5.4.4 is generally used on all other CPUs.</p>
-<h3 id="vasp-on-nersc">VASP on NERSC</h3>
-<p>NERSC maintains compiled, and optimized versions of the vasp binaries. To get access to these binaries, you must be added to the group VASP license. If/when you determine that your research requires the use of VASP, contact Jimmy Shen and Eric Sivonxay.</p>
-<p>The potcar directory is:</p>
-<p> <pre><code class>/project/projectdirs/matgen/POTCARs
-</code></pre></p>
-<h3 id="vasp-on-berkeley-research-computing-savio">VASP on Berkeley Research Computing (savio)</h3>
-<p>When running vasp on savio, we have access to our own compilations. To access the vasp binaries on savio, add the following line to your .bashrc file.</p>
-<p> <pre><code class>export MODULEPATH=${MODULEPATH}:/global/home/groups/co_lsdi/sl7/modfiles
-</code></pre></p>
-<p>POTCARs are located at:</p>
-<p> <pre><code class>/clusterfs/cloudcuckoo/POTCARs
-</code></pre></p>
-<p>For issues with these compilations, please contact Eric Sivonxay (esivonxay@lbl.gov)</p>
-<h3 id="lawrencium">Lawrencium</h3>
-<p>When running vasp on Lawrencium, we have access to our own compilations. To access the vasp binaries on Lawrencium, add the following line to your .bashrc file.</p>
-<p> <pre><code class>export MODULEPATH=${MODULEPATH}:/clusterfs/mp/temp_modfiles
-</code></pre></p>
-<p>POTCARs are located at:</p>
-<p> <pre><code class>/clusterfs/mp/software/POTCARs
-</code></pre></p>
-<p>For issues with these compilations, please contact Eric Sivonxay (esivonxay@lbl.gov)</p>
-<h1 id="q-chem">Q-Chem</h1>
-<p>More Information to come</p>
-<h1 id="lammps">LAMMPS</h1>
-<p>More Information to come</p>
-<h1 id="gromacs">GROMACS</h1>
-<p>More Information to come</p>
-<hr />
-<p>Authors: Eric Sivonxay</p>
-<p>Contact: esivonxay@lbl.gov</p></div>
+<h2 id="printing-and-scanning">Printing and Scanning <a name="printing"></a></h2>
+<p>The group has a Canon MF731C printer located in 33-143C. It supports color printing as well as two-sided printing and includes a scanner. To connect to the printer follow <a href="https://sites.google.com/a/lbl.gov/perssongroup/printers-in-persson-group">this guide on the internal group site</a>.</p>
+<hr /></div>
         </div>
 
         <footer class="col-md-12">

@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Getting a Computer - Persson Group Handbook</title>
+        <title>Ab Initio - Persson Group Handbook</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -47,28 +47,28 @@
                 <div class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Getting Started <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../before/">Before you Arrive</a>
+    <a href="../../getting_started/before/">Before you Arrive</a>
 </li>
                                     
 <li >
-    <a href="../after/">After you Arrive</a>
-</li>
-                                    
-<li class="active">
-    <a href="./">Getting a Computer</a>
+    <a href="../../getting_started/after/">After you Arrive</a>
 </li>
                                     
 <li >
-    <a href="../workspace/">Workspace Set-Up</a>
+    <a href="../../getting_started/buy_computer/">Getting a Computer</a>
 </li>
                                     
 <li >
-    <a href="../settling/">Getting Settled</a>
+    <a href="../../getting_started/workspace/">Workspace Set-Up</a>
+</li>
+                                    
+<li >
+    <a href="../../getting_started/settling/">Getting Settled</a>
 </li>
                                 </ul>
                             </li>
@@ -89,32 +89,32 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Computing <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../../computing/new_computer/">Computer Setup</a>
+    <a href="../new_computer/">Computer Setup</a>
 </li>
                                     
 <li >
-    <a href="../../computing/software/">Software</a>
+    <a href="../software/">Software</a>
 </li>
                                     
 <li >
-    <a href="../../computing/hpc/">High Performance Computing</a>
+    <a href="../hpc/">High Performance Computing</a>
 </li>
                                     
 <li >
-    <a href="../../computing/atomate/">Atomate Setup</a>
+    <a href="../atomate/">Atomate Setup</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">Ab Initio</a>
 </li>
                                     
 <li >
-    <a href="../../computing/ab_initio/">Ab Initio</a>
-</li>
-                                    
-<li >
-    <a href="../../computing/md/">Molecular Dynamics</a>
+    <a href="../md/">Molecular Dynamics</a>
 </li>
                                 </ul>
                             </li>
@@ -156,12 +156,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../after/">
+                                <a rel="next" href="../atomate/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../workspace/">
+                                <a rel="prev" href="../md/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -173,25 +173,43 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#getting-a-computer">Getting a Computer </a></li>
-            <li><a href="#why-purchase-a-macbook-pro">Why Purchase a Macbook Pro?</a></li>
-            <li><a href="#making-the-purchase">Making the Purchase</a></li>
+        <li class="main active"><a href="#vasp">VASP</a></li>
+            <li><a href="#vasp-on-nersc">VASP on NERSC</a></li>
+            <li><a href="#vasp-on-berkeley-research-computing-savio">VASP on Berkeley Research Computing (savio)</a></li>
+            <li><a href="#lawrencium">Lawrencium</a></li>
+        <li class="main "><a href="#q-chem">Q-Chem</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="getting-a-computer">Getting a Computer <a name="getcomputer"></a></h1>
-<p>Purchasing a new computer is budgeted for when hiring long-term appointments (graduate student, postdoc, staff). Short-term appointments (undergraduate students, internships, etc.) will not involve a computer purchase unless otherwise stated as a computer can be borrowed from the group’s inventory instead. </p>
-<p>It typically takes at least 2 weeks for a computer to arrive so it is recommended to prioritize placing an order either before your arrival or as soon as possible after you start.</p>
+<h1 id="vasp">VASP</h1>
+<p>We generally run 2 versions of VASP - 5.4.4 and 6 (in beta). VASP 6 is used primarily on nodes operating on the Knights Landing (KNL) CPU architecture, while VASP 5.4.4 is generally used on all other CPUs.</p>
+<h3 id="vasp-on-nersc">VASP on NERSC</h3>
+<p>NERSC maintains compiled, and optimized versions of the vasp binaries. To get access to these binaries, you must be added to the group VASP license. If/when you determine that your research requires the use of VASP, contact Jimmy Shen and Eric Sivonxay.</p>
+<p>The potcar directory is:</p>
+<p> <pre><code class>/project/projectdirs/matgen/POTCARs
+</code></pre></p>
+<h3 id="vasp-on-berkeley-research-computing-savio">VASP on Berkeley Research Computing (savio)</h3>
+<p>When running vasp on savio, we have access to our own compilations. To access the vasp binaries on savio, add the following line to your .bashrc file.</p>
+<p> <pre><code class>export MODULEPATH=${MODULEPATH}:/global/home/groups/co_lsdi/sl7/modfiles
+</code></pre></p>
+<p>POTCARs are located at:</p>
+<p> <pre><code class>/clusterfs/cloudcuckoo/POTCARs
+</code></pre></p>
+<p>For issues with these compilations, please contact Eric Sivonxay (esivonxay@lbl.gov)</p>
+<h3 id="lawrencium">Lawrencium</h3>
+<p>When running vasp on Lawrencium, we have access to our own compilations. To access the vasp binaries on Lawrencium, add the following line to your .bashrc file.</p>
+<p> <pre><code class>export MODULEPATH=${MODULEPATH}:/clusterfs/mp/temp_modfiles
+</code></pre></p>
+<p>POTCARs are located at:</p>
+<p> <pre><code class>/clusterfs/mp/software/POTCARs
+</code></pre></p>
+<p>For issues with these compilations, please contact Eric Sivonxay (esivonxay@lbl.gov)</p>
+<h1 id="q-chem">Q-Chem</h1>
+<p>More Information to come</p>
 <hr />
-<h2 id="why-purchase-a-macbook-pro">Why Purchase a Macbook Pro?</h2>
-<p><img alt="" src="../../resources/mac.jpg" /></p>
-<p>Buying a high end Macbook Pro is highly advised although not mandatory. In our experience, Macs offer the best systems for our work and having the same operating system within our group makes it easier to troubleshoot and share code. Using computers with similar hardware can also make it easier to share and pass down computer accessories and equipment. While we want to be conscious of cost and avoid wastefulness, the value of using well performing equipment that better supports our productivity, collaborative group culture, and reduces wasted time adds value which greatly outweighs the initial financial cost. If you would like to get anything other than a Macbook Pro, please consult more senior group members first.</p>
-<p>You can use the Apple website to browse details and see what is available in through the supplier, Anacapa, in Ebuy and Bearbuy. Many group members use a 13” or 15" Macbook Pro. The 13" is powerful enough to do serious work and is lighter and smaller than the 15" for improved mobility. However, the most powerful computing hardware is typically only available in the 15" if you want to prioritize performance.  </p>
-<hr />
-<h2 id="making-the-purchase">Making the Purchase</h2>
-<p>If you are ordering a computer before your arrival, you will need to coordinate with Alice Mueller (amuller2@lbl.gov) to handle the purchase. Please send an email with the details of your selections.</p>
-<p>Otherwise, if you are ordering a computer after you have started, you can make arrangements yourself. See <a href="../../policies/purchasing/">purchasing for more information.</a></p></div>
+<p>Authors: Eric Sivonxay</p>
+<p>Contact: esivonxay@lbl.gov</p></div>
         </div>
 
         <footer class="col-md-12">
