@@ -290,8 +290,8 @@ category: ''
 query: '{}'
 env:
     db_file: /global/homes/s/sivonxay/.conda/envs/cms/config/db.json
-    vasp_cmd: 'srun -N 1 -n 64 -c 4 --cpu_bind=cores vasp_std'
-    gamma_vasp_cmd: 'srun -N 1 -n 64 -c 4 --cpu_bind=cores vasp_gam'
+    vasp_cmd: 'srun -n 64 -c 4 --cpu_bind=cores vasp_std'
+    gamma_vasp_cmd: 'srun -n 64 -c 4 --cpu_bind=cores vasp_gam'
     scratch_dir: /global/cscratch1/sd/sivonxay
     incar_update:
 </code></pre></div><input name=tab-group-8 type=radio id=tab-group-8-1_Savio class=code-tab data-lang=Savio aria-controls=tab-group-8-1_Savio-panel role=tab><label for=tab-group-8-1_Savio class=code-tab-label data-lang=Savio id=tab-group-8-1_Savio-label>Savio</label><div class=code-tabpanel role=tabpanel data-lang=Savio id=tab-group-8-1_Savio-panel aria-labelledby=tab-group-8-1_Savio-label><pre><code class=Savio>name: savio_fworker
@@ -322,6 +322,7 @@ nodes: 1
 walltime: '24:00:00'
 account: matgen
 job_name: knl_launcher
+signal: SIGINT@60
 qos: regular
 constraint: 'knl'
 pre_rocket: |
@@ -363,6 +364,9 @@ pre_rocket: |
 </ul>
 <p>Note: specifying singleshot in the queue adapter will limit each reserved job to running only one firework (even if other fireworks are ready and could run with your remaining wall time). Can change to rapidfire but this may result in lost runs (fireworks that do not complete because they run out of wall time).</p>
 <p>For more information on best practices for running VASP on multiple nodes (i.e. how to set vasp_cmd in my_fworker.yaml based on the number of nodes requested in my_qadapter) see the <a href="https://www.NERSC.gov/users/training/events/vasp-user-hands-on-knl-training-june-18-2019/">NERSC vasp training</a></p>
+<h3 id="choose-the-appropriate-number-of-nodes-processes-and-coresprocess">Choose the appropriate number of nodes, processes, and cores/process:</h3>
+<p>Follow this <a href="https://docs.google.com/document/d/1pmnX48ZwmFSsamNg9Z2veiRUeSA4EwSNFteHfXVPUgQ/edit?usp=sharing">flowchart</a> to decide how many nodes to request, the number of parallel processes to use, and the number of cores to use for each parallel process. The rule of thumb to remember is that you should use all of the cores for every node that you request. For example, if there are 256 cores per node, you request N nodes, n processes, and c cores/process, then the following relationship must hold: 256<em>N = n</em>c</p>
+<p>Specify N in my_qadapter.yaml and specify n and c in my_fworker.yaml within your configuration folder.</p>
 <h2 id="configure-bash-profile">Configure Bash profile:</h2>
 <p>Append the following lines to the .bashrc.ext file (which is located in your home directory, e.g. /global/homes/s/sivonxay)</p>
 <div class=md-fenced-code-tabs id=tab-tab-group-10><input name=tab-group-10 type=radio id=tab-group-10-0_NERSC checked=checked class=code-tab data-lang=NERSC aria-controls=tab-group-10-0_NERSC-panel role=tab><label for=tab-group-10-0_NERSC class=code-tab-label data-lang=NERSC id=tab-group-10-0_NERSC-label>Nersc</label><div class=code-tabpanel role=tabpanel data-lang=NERSC id=tab-group-10-0_NERSC-panel aria-labelledby=tab-group-10-0_NERSC-label><pre><code class=NERSC>module load python/3.6-anaconda-4.4
@@ -440,7 +444,7 @@ Here are some examples:</p>
 </code></pre></div><input name=tab-group-19 type=radio id=tab-group-19-1_example_2 class=code-tab data-lang=example_2 aria-controls=tab-group-19-1_example_2-panel role=tab><label for=tab-group-19-1_example_2 class=code-tab-label data-lang=example_2 id=tab-group-19-1_example_2-label>Example_2</label><div class=code-tabpanel role=tabpanel data-lang=example_2 id=tab-group-19-1_example_2-panel aria-labelledby=tab-group-19-1_example_2-label><pre><code class=example_2>lpad get_fws -q '{&quot;state&quot;:&quot;RUNNING&quot;, &quot;fw_id&quot;:{&quot;$gte&quot;: 50}}'
 </code></pre></div></div>
 
-<p>Rerunning fizzled (Failed) fireworks</p>
+<h3 id="rerunning-fizzled-failed-fireworks">Rerunning fizzled (Failed) fireworks</h3>
 <div class=md-fenced-code-tabs id=tab-tab-group-20><input name=tab-group-20 type=radio id=tab-group-20-0_example_1 checked=checked class=code-tab data-lang=example_1 aria-controls=tab-group-20-0_example_1-panel role=tab><label for=tab-group-20-0_example_1 class=code-tab-label data-lang=example_1 id=tab-group-20-0_example_1-label>Example_1</label><div class=code-tabpanel role=tabpanel data-lang=example_1 id=tab-group-20-0_example_1-panel aria-labelledby=tab-group-20-0_example_1-label><pre><code class=example_1>lpad rerun_fws -i &lt;fw_id&gt;
 </code></pre></div><input name=tab-group-20 type=radio id=tab-group-20-1_example_2 class=code-tab data-lang=example_2 aria-controls=tab-group-20-1_example_2-panel role=tab><label for=tab-group-20-1_example_2 class=code-tab-label data-lang=example_2 id=tab-group-20-1_example_2-label>Example_2</label><div class=code-tabpanel role=tabpanel data-lang=example_2 id=tab-group-20-1_example_2-panel aria-labelledby=tab-group-20-1_example_2-label><pre><code class=example_2>lpad rerun_fws -s FIZZLED
 </code></pre></div></div>
