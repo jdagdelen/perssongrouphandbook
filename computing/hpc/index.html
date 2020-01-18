@@ -183,7 +183,7 @@
                 <div class="col-md-9" role="main">
 
 <h2 id="computing-resources">Computing Resources <a name="computing"></a></h2>
-<p>Our group’s main computing resources are:</p>
+<p>Our group&rsquo;s main computing resources are:</p>
 <ul>
 <li><a href="#nersc">NERSC</a> (the LBNL supercomputing center, one of the biggest in the world)</li>
 <li><a href="http://scs.lbl.gov">Lawrencium</a> / Berkeley Lab Research Computing</li>
@@ -201,20 +201,20 @@
 <h4 id="to-get-started-with-calculations-at-nersc">To get started with calculations at NERSC: <a name="startnersc"></a></h4>
 <ol>
 <li>Ask Kristin about whether you will be running at NERSC and, if so, under what account / repository to charge.</li>
-<li>Request a NERSC account through the NERSC homepage (Google “NERSC account request”).</li>
+<li>Request a NERSC account through the NERSC homepage (Google &ldquo;NERSC account request&rdquo;).</li>
 <li>A NERSC Liason or PI Proxy will validate your account and assign you an initial allocation of computing hours.</li>
-<li>At this point, you should be able to log in, check CPU-hour balances, etc. through “NERSC NIM” and “My NERSC” portals</li>
+<li>At this point, you should be able to log in, check CPU-hour balances, etc. through &ldquo;NERSC NIM&rdquo; and &ldquo;My NERSC&rdquo; portals</li>
 <li>In order to log in and run jobs on the various machines at NERSC, review the NERSC documentation.</li>
-<li>In order to load and submit scripts for various codes (VASP, ABINIT, Quantum Espresso), NERSC has lots of information to help. Try Google, e.g. “NERSC VASP”.
+<li>In order to load and submit scripts for various codes (VASP, ABINIT, Quantum Espresso), NERSC has lots of information to help. Try Google, e.g. &ldquo;NERSC VASP&rdquo;.
 ... * Note that for commercial codes such as VASP, there is an online form that allows you to enter your VASP license, which NERSC will confirm and then allow you access to.</li>
 <li>Please make a folder inside your project directory and submit all your jobs there, as your home folder has only about 40GB of space. For example, for matgen project, your work folder path should be something like the following:
 <code>/global/project/projectdirs/matgen/YOUR_NERSC_USERNAME</code></li>
-<li>You can also request a mongo database for your project to be hosted on NERSC. Google “MongoDB on NERSC” for instructions. Donny Winston or Patrick Huck can also help you get set up and provide you with a preconfigured database suited for running Materials Project style workflows.</li>
+<li>You can also request a mongo database for your project to be hosted on NERSC. Google &ldquo;MongoDB on NERSC&rdquo; for instructions. Donny Winston or Patrick Huck can also help you get set up and provide you with a preconfigured database suited for running Materials Project style workflows.</li>
 </ol>
 <h4 id="running-jobs-on-nersc">Running Jobs on NERSC</h4>
 <p>This tutorial provides a brief overview of setting yourself up to run jobs on NERSC. If any information is unclear or missing, feel free to edit this document or contact Kara Fong.</p>
 <h5 id="setting-up-a-nersc-account">Setting up a NERSC account:</h5>
-<p>Contact the group’s NERSC Liaison (currently Eric Sivonxay, see Group Jobs list). They will help you create an account and allocate you computational resources. You will then receive an email with instructions to fill out the Appropriate Use Policy form, set up your password, etc.</p>
+<p>Contact the group&rsquo;s NERSC Liaison (currently Eric Sivonxay, see Group Jobs list). They will help you create an account and allocate you computational resources. You will then receive an email with instructions to fill out the Appropriate Use Policy form, set up your password, etc.</p>
 <p>Once your account is set up, you can manage it at the NERSC Information Management (NIM) website.</p>
 <h5 id="logging-on-setup">Logging on (Setup):</h5>
 <p>You must use the SSH protocol to connect to NERSC.
@@ -236,8 +236,8 @@ ControlPersist 600
 <p>You should now be ready to log on!</p>
 <hr />
 <p>You must store your SSH public key on the NERSC NIM database.
-Go to the NIM website, navigate to “My Stuff” -&gt; “My SSH Keys”. Click on the SSH Keys tab.
-Copy your key (from id_rsa.pub) into the website’s text box, click Add.</p>
+Go to the NIM website, navigate to &ldquo;My Stuff&rdquo; -&gt; &ldquo;My SSH Keys&rdquo;. Click on the SSH Keys tab.
+Copy your key (from id_rsa.pub) into the website&rsquo;s text box, click Add.</p>
 <h5 id="logging-on">Logging on:</h5>
 <p>Log on to Cori, for example, by submitting the following command in the terminal:</p>
 <p> <pre><code class>ssh username@cori.nersc.gov
@@ -256,7 +256,7 @@ Copy your key (from id_rsa.pub) into the website’s text box, click Add.</p>
 <p>To move a larger quantity of data using a friendlier interface, use <a href="http://globus.lbl.gov">Globus Online</a>.</p>
 <h5 id="running-and-monitoring-jobs">Running and monitoring jobs:</h5>
 <p>The following instructions are for running on Cori. Analogous information for running on Edison can be found here.</p>
-<p>Most jobs are run in batch mode, in which you prepare a shell script telling the batch system how to run the job (number of nodes, time the job will run, etc.). NERSC’s batch system software is called SLURM. Below is a simple batch script example, copied from the NERSC website:</p>
+<p>Most jobs are run in batch mode, in which you prepare a shell script telling the batch system how to run the job (number of nodes, time the job will run, etc.). NERSC&rsquo;s batch system software is called SLURM. Below is a simple batch script example, copied from the NERSC website:</p>
 <p> <pre><code class>#!bin/bash -l
 
 #SBATCH -N 2          #Use 2 nodes
@@ -267,7 +267,7 @@ Copy your key (from id_rsa.pub) into the website’s text box, click Add.</p>
 
 srun -n 32 -c 4 ./my_executable
 </code></pre></p>
-<p>Here, the first line specifies which shell to use (in this case bash). The keyword #SBATCH is used to start directive lines (<a href="http://www.nersc.gov/users/computational-systems/cori/running-jobs/batch-jobs/#toc-anchor-3">click here</a> for a full description of the sbatch options you can specify). The word “srun” starts execution of the code.</p>
+<p>Here, the first line specifies which shell to use (in this case bash). The keyword #SBATCH is used to start directive lines (<a href="http://www.nersc.gov/users/computational-systems/cori/running-jobs/batch-jobs/#toc-anchor-3">click here</a> for a full description of the sbatch options you can specify). The word &ldquo;srun&rdquo; starts execution of the code.</p>
 <p>To submit your batch script, use <code>sbatch myscript.sl</code> in the directory containing the script file.</p>
 <p>Below are some useful commands to control and monitor your jobs:</p>
 <p> <pre><code class>sqs -u username (Lists jobs for your account)
@@ -280,7 +280,7 @@ scancel job_id  (Cancels a job from the queue)
 <h4 id="automatic-job-submission-on-nersc-crontab">Automatic job submission on NERSC: crontab <a name="crontab"></a></h4>
 <p>In order to automatically manage job submission at NERSC, you can use crontab. You can submit jobs periodically even when you are not signed in to any NERSC systems and perhaps reduce the queue time from 5-10 days to a few hours. This is possible because of the way jobs are managed in atomate/fireworks. Please make sure you feel comfortable submitting individual jobs via atomate before reading this section.</p>
 <p>In atomate, by using --maxloop 3 for example when setting rocket_launch in your my_qadapter.yaml, after 3 trials in each minute if there are still no READY jobs available in your Launchpad Fireworks would stop the running job on NERSC to avoid wasting computing resources. On the other hand, if you have Fireworks available with the READY state and you have been using crontab for a few days, even if the jobs you submitted a few days ago start running on NERSC, they would pull any READY Fireworks and start RUNNING them reducing the turnaround from a few days to a few hours! So how to setup crontab? Please follow the instructions here:
-1. ssh to the node where you want to setup the crontab; try one that is easy to remember such as cori01 or edison01; for logging in to a specific node just do for example “ssh cori01” after you log in to the system (Cori in this example).</p>
+1. ssh to the node where you want to setup the crontab; try one that is easy to remember such as cori01 or edison01; for logging in to a specific node just do for example &ldquo;ssh cori01&rdquo; after you log in to the system (Cori in this example).</p>
 <ol>
 <li>
 <p>Type and enter: <code>crontab -e</code></p>
@@ -303,18 +303,18 @@ qlaunch --fill_mode rapidfire -m 1000 --nlaunches 1
 <li>Please make sure to set your PRODUCTION_FOLDER under /global/project/projectdirs/ that has much more space than your home folder and it is also backed up. Make sure to keep an eye on how close you are to disk space and file number limitations by checking https://my.nersc.gov/ periodically.</li>
 </ol>
 <h4 id="running-jupyter-notebooks-on-cori">Running Jupyter Notebooks on Cori <a name="jupyter"></a></h4>
-<p>Jupyter notebooks are quickly becoming an indispensable tool for doing computational science. In some cases, you might want to (or need to) harness NERSC computing power inside of  a jupyter notebook. To do this, you can use NERSC’s new Jupyterhub system at https://jupyter-dev.nersc.gov/. These notebooks are run on a large memory node of Cori and can also submit jobs to the batch queues (see http://bit.ly/2A0mqrl for details). All of your files and the project directory will be accessible from the Jupyterhub, but your conda envs won’t be available before you do some configuration.</p>
-<p>To set up a conda environment so it is accessible from the Jupyterhub, activate the environment and setup an ipython kernel. To do this, run the command “pip install ipykernel”. More info can be found at http://bit.ly/2yoKAzB.</p>
+<p>Jupyter notebooks are quickly becoming an indispensable tool for doing computational science. In some cases, you might want to (or need to) harness NERSC computing power inside of  a jupyter notebook. To do this, you can use NERSC&rsquo;s new Jupyterhub system at https://jupyter-dev.nersc.gov/. These notebooks are run on a large memory node of Cori and can also submit jobs to the batch queues (see http://bit.ly/2A0mqrl for details). All of your files and the project directory will be accessible from the Jupyterhub, but your conda envs won&rsquo;t be available before you do some configuration.</p>
+<p>To set up a conda environment so it is accessible from the Jupyterhub, activate the environment and setup an ipython kernel. To do this, run the command &ldquo;pip install ipykernel&rdquo;. More info can be found at http://bit.ly/2yoKAzB.</p>
 <h4 id="automatic-job-packing-with-fireworks">Automatic Job Packing with FireWorks <a name="packing"></a></h4>
 <p>DISCLAIMER:  Only use job packing if you have trouble with typical job submission. The following tip is not 100% guaranteed to work., and is based on limited, subjective experience on Cori. Talk to Alex Dunn (ardunn@lbl.gov) for help if you have trouble.</p>
-<p>The Cori queue system can be unreasonably slow when submitting many (e.g., hundreds, thousands) of small (e.g., single node or 2 nodes) jobs with qos-normal priority on Haswell. In practice, we have found that the Cori job scheduler will give your jobs low throughput if you have many jobs in queue, and you will often only be able to run 5-30 jobs at a time, while the rest wait in queue for far longer than originally expected (e.g., weeks). While there is no easy way to increase your queue submission rate (AFAIK), you can use FireWorks job-packing to “trick” Cori’s SLURM scheduler into running many jobs in serial on many parallel compute nodes with a single queue submission, vastly increasing throughput.</p>
-<p>You can use job packing with the “multi” option to rlaunch. This command launches N parallel python processes on the Cori scheduling node, each which runs a job using M compute nodes.</p>
+<p>The Cori queue system can be unreasonably slow when submitting many (e.g., hundreds, thousands) of small (e.g., single node or 2 nodes) jobs with qos-normal priority on Haswell. In practice, we have found that the Cori job scheduler will give your jobs low throughput if you have many jobs in queue, and you will often only be able to run 5-30 jobs at a time, while the rest wait in queue for far longer than originally expected (e.g., weeks). While there is no easy way to increase your queue submission rate (AFAIK), you can use FireWorks job-packing to &ldquo;trick&rdquo; Cori&rsquo;s SLURM scheduler into running many jobs in serial on many parallel compute nodes with a single queue submission, vastly increasing throughput.</p>
+<p>You can use job packing with the &ldquo;multi&rdquo; option to rlaunch. This command launches N parallel python processes on the Cori scheduling node, each which runs a job using M compute nodes.</p>
 <p>The steps to job packing are:
 1. Edit your my_qadapter.yaml file to reserve N * M nodes for each submission. For example, if each of your jobs takes M = 2 nodes, and you want a N = 10 x speedup, reserve 20 nodes per queue submission.
 2. Change your rlaunch command to:</p>
 <p> <pre><code class>rlaunch -c /your/config multi N
 </code></pre></p>
-<p>To have each FireWorks process run as many jobs as possible in serial before the walltime, use the --nlaunches 0 option. To prevent FireWorks from submitting jobs with little walltime left (causing jobs to frequently get stuck as “RUNNING”), set the --timeout option. Make sure --timeout is set so that even a long running job submitted at the end of your allocation will not run over your walltime limit. Your my_qadapter.yaml should then have something similar to the following lines:</p>
+<p>To have each FireWorks process run as many jobs as possible in serial before the walltime, use the --nlaunches 0 option. To prevent FireWorks from submitting jobs with little walltime left (causing jobs to frequently get stuck as &ldquo;RUNNING&rdquo;), set the --timeout option. Make sure --timeout is set so that even a long running job submitted at the end of your allocation will not run over your walltime limit. Your my_qadapter.yaml should then have something similar to the following lines:</p>
 <p> <pre><code class>rocket_launch: rlaunch -c /your/config multi 10 --nlaunches 0 --timeout 169200
 nodes: 20
 </code></pre></p>
@@ -577,7 +577,7 @@ Contact: karafong@lbl.gov</p></div>
         </footer>
         <script>
             var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+                shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
         </script>
         <script src="../../js/base.js" defer></script>
         <script src="../../search/main.js" defer></script>
