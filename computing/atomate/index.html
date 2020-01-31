@@ -244,7 +244,7 @@ cd ..
 </code></pre></p>
 <h1 id="configure-fireworks">Configure Fireworks:</h1>
 <h2 id="create-fireworks-configuration-files">Create Fireworks configuration files</h2>
-<p>Make directory in environment&rsquo;s root directory  (/envs/&lt;name&gt;/) called config</p>
+<p>Make directory in environment’s root directory  (/envs/&lt;name&gt;/) called config</p>
 <p> <pre><code class=bash>cd ~/.conda/envs/cms
 mkdir config
 cd config
@@ -277,7 +277,7 @@ QUEUE_UPDATE_INTERVAL: 5
 port: 27017
 name: 'fw_db_name'
 username: '&lt;admin_username&gt;'
-password: &amp;lsquo;&lt;admin_password&gt;&amp;rsquo;
+password: ‘&lt;admin_password&gt;’
 logdir: null
 Istrm_lvl: DEBUG
 user_indices: []
@@ -388,7 +388,7 @@ pmg config --add PMG_VASP_PSP_DIR /project/projectdirs/matgen/POTCARs
 pmg config --add PMG_VASP_PSP_DIR /clusterfs/cloudcuckoo/POTCARs
 </code></pre></div></div>
 
-<p>Running these commands will create a .pmgrc.yaml file (if it doesn&rsquo;t exist already) containing these configuration settings in your home directory</p>
+<p>Running these commands will create a .pmgrc.yaml file (if it doesn’t exist already) containing these configuration settings in your home directory</p>
 <h1 id="using-fireworks-and-atomate">Using Fireworks and Atomate:</h1>
 <h2 id="initializing-fireworks-database">Initializing Fireworks Database:</h2>
 <p>Use care when running this command. It will wipe all existing entries in your fireworks database in the fireworks, workflows, and launches collections.</p>
@@ -396,7 +396,7 @@ pmg config --add PMG_VASP_PSP_DIR /clusterfs/cloudcuckoo/POTCARs
 </code></pre></p>
 <h2 id="using-atomate-to-create-preset-workflow">Using Atomate to create preset workflow</h2>
 <p>The following code blocks are python code that should be run in jupyter or from the terminal. Make sure you are using the environment setup above. The computer running the code should have access to mongodb03.NERSC.gov; this can be disregarded when running directly on NERSC or when connected to to the LBNL intranet. For computers outside of LBNL, a VPN will need to be used.</p>
-<p>Run the following python code by creating a file named &ldquo;make_workflow.py&rdquo;:</p>
+<p>Run the following python code by creating a file named “make_workflow.py”:</p>
 <p> <pre><code class=python>from pymatgen import MPRester
 from fireworks import LaunchPad
 from atomate.vasp.workflows.presets.core import wf_static
@@ -404,7 +404,7 @@ from atomate.vasp import powerups
 
 mpr = MPRester()
 
-structure = mpr.get_structure_by_material_id(&amp;ldquo;mp-145&amp;rdquo;)
+structure = mpr.get_structure_by_material_id(“mp-145”)
 wf = wf_static(structure)
 wf = powerups.add_common_powerups(wf, {&quot;scratch_dir&quot;:&quot;&gt;&gt;scratch_dir&lt;&lt;&quot;})
 
@@ -412,7 +412,7 @@ lp = LaunchPad.auto_load()
 lp.add_wf(wf)
 </code></pre></p>
 <p>The previous python script added a static energy calculation for Hexagonal Lu to your job database.</p>
-<p> <pre><code class=bash>python &amp;ldquo;make_workflow.py
+<p> <pre><code class=bash>python “make_workflow.py
 </code></pre></p>
 <p>To check on the job, run the command:</p>
 <p> <pre><code class=bash>lpad get_fws -s READY
@@ -425,12 +425,12 @@ source active cms
 mkdir FireworksTest
 cd FireworksTest
 </code></pre></p>
-<p>To exit the tmux session, press the &ldquo;control&rdquo; and &ldquo;b&rdquo; keys together, followed by &ldquo;d&rdquo;</p>
+<p>To exit the tmux session, press the “control” and “b” keys together, followed by “d”</p>
 <p>To re-enter the tmux session:</p>
 <p> <pre><code class=bash>tmux attach -t background_launcher
 </code></pre></p>
 <p>For more tmux commands, see the <a href="https://tmuxcheatsheet.com/">tmux cheatsheet</a></p>
-<p>Use qlaunch command to reserve jobs with SLURM&rsquo;s scheduler. Qlaunch has 3 modes; singleshot, rapidfire, and multi. Singleshot is used to launch one job, rapidfire is used to launch multiple jobs in quick succession, and multi creates one job with multiple fireworks runs. You&rsquo;ll probably want to use rapidfire. Some useful flags to set are: -m to specify maximum # of jobs in queue at any given time and --nlaunches to specify how many fireworks to run.
+<p>Use qlaunch command to reserve jobs with SLURM’s scheduler. Qlaunch has 3 modes; singleshot, rapidfire, and multi. Singleshot is used to launch one job, rapidfire is used to launch multiple jobs in quick succession, and multi creates one job with multiple fireworks runs. You’ll probably want to use rapidfire. Some useful flags to set are: -m to specify maximum # of jobs in queue at any given time and --nlaunches to specify how many fireworks to run.
 Here are some examples:</p>
 <div class=md-fenced-code-tabs id=tab-tab-group-18><input name=tab-group-18 type=radio id=tab-group-18-0_example_1 checked=checked class=code-tab data-lang=example_1 aria-controls=tab-group-18-0_example_1-panel role=tab><label for=tab-group-18-0_example_1 class=code-tab-label data-lang=example_1 id=tab-group-18-0_example_1-label>Example_1</label><div class=code-tabpanel role=tabpanel data-lang=example_1 id=tab-group-18-0_example_1-panel aria-labelledby=tab-group-18-0_example_1-label><pre><code class=example_1>qlaunch singleshot
 </code></pre></div><input name=tab-group-18 type=radio id=tab-group-18-1_example_2 class=code-tab data-lang=example_2 aria-controls=tab-group-18-1_example_2-panel role=tab><label for=tab-group-18-1_example_2 class=code-tab-label data-lang=example_2 id=tab-group-18-1_example_2-label>Example_2</label><div class=code-tabpanel role=tabpanel data-lang=example_2 id=tab-group-18-1_example_2-panel aria-labelledby=tab-group-18-1_example_2-label><pre><code class=example_2>qlaunch rapidfire --nlaunches 10
@@ -479,7 +479,7 @@ To do so:</p>
         </footer>
         <script>
             var base_url = "../..",
-                shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../js/base.js" defer></script>
         <script src="../../search/main.js" defer></script>
