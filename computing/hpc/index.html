@@ -449,7 +449,7 @@ Make sure you have a directory named $HOME/.ssh on your local computer (if not, 
 <h4 id="running-on-lrc">Running on LRC</h4>
 <p>Under the condo accounts condo_mp_cf1 (56 cf1 nodes) and condo_mp_es1 (1 gpu node), we have exclusive access to certain Lawrencium nodes. If you do not know which of these node groups you are supposed to be running on, you probably shouldn't be running on Lawrencium. Additionally, we have the ability to run on ES1 GPU nodes at low priority mode (es_lowprio).</p>
 <h5 id="accessing-software-binaries_1">Accessing Software binaries</h5>
-<p>Software within BRC is managed through modules. You can access precompiled, preinstalled software by loading the desired module.</p>
+<p>Software within LRC is managed through modules. You can access precompiled, preinstalled software by loading the desired module.</p>
 <p> <pre><code class>module load &lt;module_name&gt;
 </code></pre></p>
 <p>To view a list of currently installed programs, use the following command:</p>
@@ -550,6 +550,10 @@ export CUDA_VISIBLE_DEVICES=0,1
 module load cuda/10.0
 </code></pre></div></div>
 
+<h4 id="interactive-jobs-on-the-group-gpu-condo-node">Interactive Jobs on the Group GPU Condo Node</h4>
+<p>To run an interactive session on the GPU node, use the following two commands to provision and log in to the node: 
+<code>salloc --time=24:00:00 --nodes=1 -p es1 --gres=gpu:2 --cpus-per-task=8 --qos=condo_mp_es1 --account=lr_mp</code>
+<code>srun --pty -u bash -i</code></p>
 <h3 id="additional-resources">Additional resources</h3>
 <p>Other Persson group members and the NERSC website are both excellent resources for getting additional help. If that fails, you can reach out to the NERSC Operations staff:</p>
 <ul>
